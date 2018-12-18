@@ -2,7 +2,7 @@ class Api::DefinitionsController < ApplicationController
   def definition
     input = params[:input]
     response = HTTP.headers(
-      "X-RapidAPI-Key" => "uNd1hIiplwmshav5dtL418LJNgpXp1PgjnEjsnqbFZMvT38URH",
+      "X-RapidAPI-Key" => ENV["RAPID_API_KEY"],
       "content-type" => "application/json; charset=utf-8"
       ).get("https://wordsapiv1.p.rapidapi.com/words/#{input}")
     @definition = response.parse
